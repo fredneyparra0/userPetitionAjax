@@ -3,9 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Redressed&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
+  <title>Users Ajax</title>
 </head>
 <body>
-  
+  <div class="container">
+    <div class="container__title-button">
+      <div class="container__title">
+        <h2 class="container__principal-title">Users of the company</h2>
+        <p class="container__header-title">Click to get any of the user data</p>
+      </div>
+      <div class="contianer__botton">
+        <button id="bottonDelete" class="botton delete">Delete All</button>
+        <button id="bottonView" class="botton open">View All</button>
+      </div>
+    </div>
+    <div class="list">
+      <div class="list__item-list username">
+        <div class="list__header yellow">
+          <p>Username</p>
+        </div>
+      </div>
+      <div class="list__item-list mail">
+        <div class="list__header pink">
+          <p>Mail</p>
+        </div>
+      </div>
+      <div class="list__item-list phone">
+        <div class="list__header blue">
+          <p>Phone</p>
+        </div>
+      </div>
+      <div class="list__item-list city">
+        <div class="list__header green">
+          <p>City</p>
+        </div>
+      </div>
+      <div class="list__item-list country">
+        <div class="list__header violet">
+          <p>Street</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="index.js"></script>
 </body>
 </html>
