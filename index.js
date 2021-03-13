@@ -13,28 +13,7 @@ const bottonView = document.getElementById('bottonView'),
 
 function petitionAjax () {
   bottonView.addEventListener('click', () => {
-    const request = new XMLHttpRequest();
-
-    request.open('GET','https://jsonplaceholder.typicode.com/users');
-    request.send();
-
-    request.addEventListener('readystatechange', () => {
-      if(request.readyState === 4){
-        const requestJson = convertJsonParse(request.responseText);
-        requestJson.forEach(element => {
-          const elementUsername = createElementDom('yellow-opacity ',element.username);
-          username.appendChild(elementUsername);
-          const elementEmail = createElementDom('pink-opacity',element.email);
-          mail.appendChild(elementEmail);
-          const elementPhone = createElementDom('blue-opacity',element.phone);
-          phone.appendChild(elementPhone);
-          const elementCity = createElementDom('green-opacity',element.address.city);
-          city.appendChild(elementCity);
-          const elementCountry = createElementDom('violet-opacity',element.address.street);
-          country.appendChild(elementCountry);
-        });
-      }
-    });
+    requestPetition();
     insertValue(true);
   });
 }
@@ -50,6 +29,30 @@ function deleteAllElements () {
   });
 }
 deleteAllElements()
+  function requestPetition() {
+    const request = new XMLHttpRequest();
+  
+    request.open('GET', 'https://jsonplaceholder.typicode.com/users');
+    request.send();
+  
+    request.addEventListener('readystatechange', () => {
+      if (request.readyState === 4) {
+        const requestJson = convertJsonParse(request.responseText);
+        requestJson.forEach(element => {
+          const elementUsername = createElementDom('yellow-opacity ', element.username);
+          username.appendChild(elementUsername);
+          const elementEmail = createElementDom('pink-opacity', element.email);
+          mail.appendChild(elementEmail);
+          const elementPhone = createElementDom('blue-opacity', element.phone);
+          phone.appendChild(elementPhone);
+          const elementCity = createElementDom('green-opacity', element.address.city);
+          city.appendChild(elementCity);
+          const elementCountry = createElementDom('violet-opacity', element.address.street);
+          country.appendChild(elementCountry);
+        });
+      }
+    });
+  }
 
 function insertValue (value) {
   const array = JSON.parse(localStorage.getItem('dataObtained'));
@@ -88,9 +91,7 @@ saveLocalStorage()
 function petitionDinamic () {
   const valuesLocalStorage = getValueLs();
   if(valuesLocalStorage[0] === true){
-    console.log('hola funciona');
-  }else{
-    console.log('no funciona');
+    requestPetition();
   }
 }
 
