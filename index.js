@@ -94,7 +94,6 @@ function petitionDinamic () {
     requestPetition();
   }
 }
-
 petitionDinamic();
 
 function getValueLs () {
